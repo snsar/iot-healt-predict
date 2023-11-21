@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time Data</title>
+</head>
+<body>
+  <h1>Dữ liệu từ cảm biến</h1>
+  <div id="data-container"></div>
+
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('mqttData', (data) => {
+      // Hiển thị dữ liệu real-time trên trang web
+      document.getElementById('data-container').innerText = `Nhiệt độ cơ thể hiện tại là: ${data}oC`;
+    });
+  </script>
+</body>
+</html>
