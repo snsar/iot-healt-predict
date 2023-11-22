@@ -4,11 +4,13 @@
 #include <PubSubClient.h>
 
 // Replace with your network credentials
-const char* ssid = "HUAWEI-E8372-A5B0";
-const char* password = "91119941";
+// const char* ssid = "HUAWEI-E8372-A5B0";
+// const char* password = "91119941";
+const char* ssid = "haha11";
+const char* password = "123456789@@";
 
 // Replace with your Mosquitto broker IP address
-const char* mqttServer = "192.168.8.101";
+const char* mqttServer = "192.168.108.82";
 const int mqttPort = 1883;
 // const char* mqttUser = "your-mqtt-username";
 // const char* mqttPassword = "your-mqtt-password";

@@ -3,20 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
   <title>Real-time Data</title>
 </head>
+<style>
+  body {
+    background: #4AC29A;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);
+	background: linear-gradient(to right, #BDFFF3, #4AC29A);
+  }
+</style>
 <body>
-  <h1>Dữ liệu từ cảm biến</h1>
-  <div id="data-container"></div>
 
+	<div class="container">
+		<div class="row mt-4">
+			<div class="col-5">
+				<h1 class="pt-5 text-center">Dữ liệu </h1>
+				
+				
+				<div id="data-container" class="text-center"></div>
+			</div>
+			<div class="col-5 offset-1 pb-3 rounded" style="background-color: rgba(84, 110, 70, 0.5);">
+				<form class="container pt-3 px-3">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Tên đăng nhập</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên đăng nhập">
+						<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Họ và tên</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên">
+						<!-- <small id="emailHelp" class="form-text text-muted"></small> -->
+						</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Email address</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập email">
+						<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Số điện thoại</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập số điện thoại">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Mật khẩu</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Đăng nhập</button>
+					</form>
+			</div>
+		</div>
+		
+	</div>
+  
+	
   <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
   <script>
     const socket = io();
 
     socket.on('mqttData', (data) => {
       // Hiển thị dữ liệu real-time trên trang web
-      document.getElementById('data-container').innerText = `Nhiệt độ cơ thể hiện tại là: ${data}oC`;
+      document.getElementById('data-container').innerHTML = `<i class="fas fa-temperature-high"></i> Nhiệt độ cơ thể hiện tại là : ${data} <sup>o</sup>C`;
     });
   </script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>

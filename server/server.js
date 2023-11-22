@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 // Kết nối đến MQTT broker
-const mqttClient = mqtt.connect('mqtt://192.168.8.101'); // Thay thế bằng URL của MQTT broker
+const mqttClient = mqtt.connect('mqtt://192.168.108.82'); // Thay thế bằng URL của MQTT broker
 
 // Xử lý sự kiện khi kết nối tới MQTT broker
 mqttClient.on('connect', () => {
